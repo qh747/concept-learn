@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="520" viewBox="0 0 1000 520">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arr-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#22c55e"/>
+    </marker>
+    <marker id="arr-r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#ef4444"/>
+    </marker>
+    <marker id="arr-y" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#ca8a04"/>
+    </marker>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="116%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#0f172a" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <rect width="1000" height="520" fill="#ffffff"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+
+    <!-- 图标题 -->
+    <text x="24" y="30" font-size="15" font-weight="700" fill="#0f172a">恢复存档流程</text>
+    <line x1="24" y1="38" x2="140" y2="38" stroke="#cbd5e1" stroke-width="1.5"/>
+
+    <!-- ============================================================ -->
+    <!-- 节点                                                           -->
+    <!-- ============================================================ -->
+
+    <!-- N1 收到恢复请求 (蓝色胶囊) [340,52,320,48] center=(500,76) bottom=100 -->
+    <g filter="url(#shadow)">
+      <rect x="340" y="52" width="320" height="48" rx="24" fill="#0065fd"/>
+    </g>
+    <text x="500" y="72" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="600" fill="#ffffff">收到恢复请求</text>
+    <text x="500" y="90" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#bfdbfe">/concept-learn 恢复 ｜ 自然语言"继续上次的学习"</text>
+
+    <!-- D1 是否指定存档名？ (菱形) center=(500,150) top=120 bottom=180 left=430 right=570 -->
+    <polygon points="430,150 500,120 570,150 500,180" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+    <text x="500" y="144" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="#1e293b" font-weight="600">是否指定</text>
+    <text x="500" y="160" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="#1e293b" font-weight="600">存档名？</text>
+
+    <!-- B1 按名称查找 [180,205,200,50] center=(280,230) bottom=255 top=205 -->
+    <g filter="url(#shadow)">
+      <rect x="180" y="205" width="200" height="50" rx="10" fill="#ffffff" stroke="#0065fd" stroke-width="2"/>
+    </g>
+    <text x="280" y="224" text-anchor="middle" dominant-baseline="middle" font-size="11" font-weight="600" fill="#1e293b">按名称查找</text>
+    <text x="280" y="242" text-anchor="middle" dominant-baseline="middle" font-size="8.5" fill="#64748b">精确匹配 slug 目录 · 命令方式需确认</text>
+
+    <!-- B2 列出存档列表供选择 [620,205,200,50] center=(720,230) bottom=255 top=205 -->
+    <g filter="url(#shadow)">
+      <rect x="620" y="205" width="200" height="50" rx="10" fill="#ffffff" stroke="#0065fd" stroke-width="2"/>
+    </g>
+    <text x="720" y="224" text-anchor="middle" dominant-baseline="middle" font-size="11" font-weight="600" fill="#1e293b">列出存档列表供选择</text>
+    <text x="720" y="242" text-anchor="middle" dominant-baseline="middle" font-size="8.5" fill="#64748b">单存档直接恢复 · 多存档供用户选</text>
+
+    <!-- N2 找到存档·读取元信息 [330,287,340,48] center=(500,311) bottom=335 top=287 -->
+    <g filter="url(#shadow)">
+      <rect x="330" y="287" width="340" height="48" rx="10" fill="#e5e9ff" stroke="#0065fd" stroke-width="2"/>
+    </g>
+    <text x="500" y="307" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="600" fill="#1e293b">找到存档 · 读取元信息</text>
+    <text x="500" y="324" text-anchor="middle" dominant-baseline="middle" font-size="8.5" fill="#64748b">无存档时提示新建学习</text>
+
+    <!-- 摘要卡片 [310,357,380,65] center=(500,389.5) bottom=422 top=357 -->
+    <rect x="310" y="357" width="380" height="65" rx="10" fill="#ffffff" stroke="#0065fd" stroke-width="1.5" stroke-dasharray="5 3"/>
+    <text x="500" y="374" text-anchor="middle" dominant-baseline="middle" font-size="10" font-weight="600" fill="#0065fd">恢复摘要</text>
+    <line x1="330" y1="382" x2="670" y2="382" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="500" y="399" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#475569">· 主题  · 学习目标  · 详略  · 输出模式  · 当前进度</text>
+    <text x="500" y="414" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="#94a3b8">向用户汇报恢复状态后，从当前阶段继续讲解</text>
+
+    <!-- E1 从当前阶段继续讲解 (绿色胶囊) [330,442,340,48] center=(500,466) top=442 bottom=490 -->
+    <g filter="url(#shadow)">
+      <rect x="330" y="442" width="340" height="48" rx="24" fill="#22c55e"/>
+    </g>
+    <text x="500" y="462" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="600" fill="#ffffff">从当前阶段继续讲解</text>
+    <text x="500" y="480" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#bbf7d0">恢复上下文 → 跳过执行前提问 → 继续讲解</text>
+
+    <!-- ============================================================ -->
+    <!-- 连线 (画在节点之上，确保箭头可见)                                -->
+    <!-- ============================================================ -->
+
+    <!-- N1 → D1 (竖线, 100→118, D1顶=120, 2px间隙) -->
+    <g stroke="#94a3b8" stroke-width="1.8" fill="none" marker-end="url(#arr)">
+      <line x1="500" y1="100" x2="500" y2="118"/>
+    </g>
+
+    <!-- D1 → B1 (左→下, 是, 绿色, D1左=430 → x=280 → B1顶前2px=203) -->
+    <g stroke="#22c55e" stroke-width="1.8" fill="none" marker-end="url(#arr-g)">
+      <path d="M430,150 L280,150 L280,203"/>
+    </g>
+
+    <!-- D1 → B2 (右→下, 否, 灰色, D1右=570 → x=720 → B2顶前2px=203) -->
+    <g stroke="#94a3b8" stroke-width="1.8" fill="none" marker-end="url(#arr)">
+      <path d="M570,150 L720,150 L720,203"/>
+    </g>
+
+    <!-- B1/B2 → T型汇合 → N2
+         B1底部(280,255) → 下到y=272 → 右到x=500
+         B2底部(720,255) → 下到y=272 → 左到x=500
+         汇合后竖箭头 (500,272) → N2顶前2px=285 -->
+    <g stroke="#94a3b8" stroke-width="1.8" fill="none">
+      <path d="M280,255 L280,272 L500,272"/>
+      <path d="M720,255 L720,272 L500,272"/>
+    </g>
+    <g stroke="#94a3b8" stroke-width="1.8" fill="none" marker-end="url(#arr)">
+      <line x1="500" y1="272" x2="500" y2="285"/>
+    </g>
+
+    <!-- N2 → 摘要卡片 (335→355, 摘要顶=357, 2px间隙) -->
+    <g stroke="#94a3b8" stroke-width="1.8" fill="none" marker-end="url(#arr)">
+      <line x1="500" y1="335" x2="500" y2="355"/>
+    </g>
+
+    <!-- 摘要卡片 → E1 (422→440, E1顶=442, 2px间隙, 绿色表示恢复成功) -->
+    <g stroke="#22c55e" stroke-width="1.8" fill="none" marker-end="url(#arr-g)">
+      <line x1="500" y1="422" x2="500" y2="440"/>
+    </g>
+
+    <!-- ============================================================ -->
+    <!-- 标签                                                           -->
+    <!-- ============================================================ -->
+
+    <!-- D1 "是" (D1→B1 水平段上方, 白底遮挡线) -->
+    <rect x="345" y="138" width="20" height="14" rx="2" fill="#f0fdf4"/>
+    <text x="355" y="145" text-anchor="middle" dominant-baseline="middle" font-size="9" font-weight="600" fill="#16a34a">是</text>
+
+    <!-- D1 "否" (D1→B2 水平段上方, 白底遮挡线) -->
+    <rect x="635" y="138" width="20" height="14" rx="2" fill="#f8fafc"/>
+    <text x="645" y="145" text-anchor="middle" dominant-baseline="middle" font-size="9" font-weight="600" fill="#64748b">否</text>
+
+    <!-- ============================================================ -->
+    <!-- 图例                                                           -->
+    <!-- ============================================================ -->
+    <g transform="translate(24, 508)" font-size="9" fill="#7f8d9f">
+      <line x1="0" y1="0" x2="24" y2="0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arr)"/>
+      <text x="30" y="4">执行路径</text>
+      <line x1="96" y1="0" x2="122" y2="0" stroke="#22c55e" stroke-width="1.8" marker-end="url(#arr-g)"/>
+      <text x="128" y="4">恢复路径</text>
+      <rect x="196" y="-7" width="13" height="13" rx="6.5" fill="#0065fd"/>
+      <text x="214" y="4">用户触发</text>
+      <rect x="276" y="-7" width="13" height="13" rx="3" fill="#e5e9ff" stroke="#0065fd" stroke-width="1.5"/>
+      <text x="294" y="4">执行动作</text>
+      <polygon points="364,-6 374,0 364,6 354,0" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.5"/>
+      <text x="380" y="4">判断/决策</text>
+      <rect x="432" y="-7" width="13" height="13" rx="3" fill="#ffffff" stroke="#0065fd" stroke-width="1.5" stroke-dasharray="3 2"/>
+      <text x="450" y="4">摘要卡片</text>
+      <rect x="510" y="-7" width="13" height="13" rx="6.5" fill="#22c55e"/>
+      <text x="528" y="4">继续讲解</text>
+    </g>
+
+  </g>
+</svg>

@@ -1,0 +1,232 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="580" viewBox="0 0 1000 580">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arr-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#22c55e"/>
+    </marker>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="116%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#0f172a" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <rect width="1000" height="580" fill="#ffffff"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+
+    <!-- 图标题 -->
+    <text x="24" y="28" font-size="15" font-weight="700" fill="#0f172a">恢复时优先级规则</text>
+    <line x1="24" y1="36" x2="180" y2="36" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="24" y="52" font-size="10" fill="#94a3b8">以 stage_status 为主 · current_stage 仅作参考 · 优先级从上到下递减</text>
+
+    <!-- ============================================================ -->
+    <!-- 节点                                                           -->
+    <!-- ============================================================ -->
+
+    <!-- Entry: 读取存档 stage_status [400,62,200,44] center=(500,84) bottom=106 -->
+    <g filter="url(#shadow)">
+      <rect x="400" y="62" width="200" height="44" rx="22" fill="#0065fd"/>
+    </g>
+    <text x="500" y="80" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="600" fill="#ffffff">读取存档 stage_status</text>
+    <text x="500" y="96" text-anchor="middle" dominant-baseline="middle" font-size="8.5" fill="#bfdbfe">stage_status 为主 · current_stage 参考</text>
+
+    <!-- D1: 有 in_progress 阶段？ center=(500,145) top=117 bottom=173 left=440 right=560 -->
+    <polygon points="440,145 500,117 560,145 500,173" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+    <text x="500" y="139" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="#1e293b" font-weight="600">有 in_progress</text>
+    <text x="500" y="155" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="#1e293b" font-weight="600">阶段？</text>
+
+    <!-- D2: 有 not_started 阶段？ center=(500,250) top=222 bottom=278 left=440 right=560 -->
+    <polygon points="440,250 500,222 560,250 500,278" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+    <text x="500" y="244" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="#1e293b" font-weight="600">有 not_started</text>
+    <text x="500" y="260" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="#1e293b" font-weight="600">阶段？</text>
+
+    <!-- ===== 右侧分支 (D1 是 → in_progress 路径) ===== -->
+
+    <!-- A1: 取最小编号 in_progress [640,123,200,44] center=(740,145) bottom=167 -->
+    <g filter="url(#shadow)">
+      <rect x="640" y="123" width="200" height="44" rx="10" fill="#ffffff" stroke="#0065fd" stroke-width="2"/>
+    </g>
+    <text x="740" y="141" text-anchor="middle" dominant-baseline="middle" font-size="11" font-weight="600" fill="#1e293b">取最小编号 in_progress</text>
+    <text x="740" y="157" text-anchor="middle" dominant-baseline="middle" font-size="8.5" fill="#64748b">优先级最高 · 从中断处继续</text>
+
+    <!-- 异常处理注释 (A1 右侧, 虚线侧注) [850,120,142,58] center=(921,149) -->
+    <rect x="850" y="120" width="142" height="58" rx="8" fill="#fffbeb" stroke="#ca8a04" stroke-width="1.2" stroke-dasharray="4 3"/>
+    <text x="921" y="134" text-anchor="middle" dominant-baseline="middle" font-size="8.5" font-weight="700" fill="#92400e">⚠ 异常处理</text>
+    <text x="921" y="148" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="#92400e">多个 in_progress →</text>
+    <text x="921" y="160" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="#92400e">取最小编号 + 提示</text>
+    <text x="921" y="172" text-anchor="middle" dominant-baseline="middle" font-size="7" fill="#ca8a04">「检测到存档异常」</text>
+
+    <!-- Sync1: 同步 current_stage [640,195,200,40] center=(740,215) bottom=235 -->
+    <g filter="url(#shadow)">
+      <rect x="640" y="195" width="200" height="40" rx="10" fill="#e5e9ff" stroke="#0065fd" stroke-width="2"/>
+    </g>
+    <text x="740" y="215" text-anchor="middle" dominant-baseline="middle" font-size="11" font-weight="600" fill="#1e293b">同步 current_stage</text>
+
+    <!-- Resume1: 从该阶段继续讲解 (绿色) [640,263,200,46] center=(740,286) bottom=309 -->
+    <g filter="url(#shadow)">
+      <rect x="640" y="263" width="200" height="46" rx="23" fill="#22c55e"/>
+    </g>
+    <text x="740" y="280" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="600" fill="#ffffff">从该阶段继续讲解</text>
+    <text x="740" y="297" text-anchor="middle" dominant-baseline="middle" font-size="8.5" fill="#bbf7d0">从中断处继续剩余内容</text>
+
+    <!-- ===== 左侧分支 (D2 是 → not_started 路径) ===== -->
+
+    <!-- A2: 取最小编号 not_started [160,228,200,44] center=(260,250) bottom=272 -->
+    <g filter="url(#shadow)">
+      <rect x="160" y="228" width="200" height="44" rx="10" fill="#ffffff" stroke="#0065fd" stroke-width="2"/>
+    </g>
+    <text x="260" y="246" text-anchor="middle" dominant-baseline="middle" font-size="11" font-weight="600" fill="#1e293b">取最小编号 not_started</text>
+    <text x="260" y="262" text-anchor="middle" dominant-baseline="middle" font-size="8.5" fill="#64748b">无 in_progress 时 · 从头讲解</text>
+
+    <!-- Sync2: 同步 current_stage [160,300,200,40] center=(260,320) bottom=340 -->
+    <g filter="url(#shadow)">
+      <rect x="160" y="300" width="200" height="40" rx="10" fill="#e5e9ff" stroke="#0065fd" stroke-width="2"/>
+    </g>
+    <text x="260" y="320" text-anchor="middle" dominant-baseline="middle" font-size="11" font-weight="600" fill="#1e293b">同步 current_stage</text>
+
+    <!-- Resume2: 从头讲解该阶段 (绿色) [160,362,200,46] center=(260,385) bottom=408 -->
+    <g filter="url(#shadow)">
+      <rect x="160" y="362" width="200" height="46" rx="23" fill="#22c55e"/>
+    </g>
+    <text x="260" y="379" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="600" fill="#ffffff">从头讲解该阶段</text>
+    <text x="260" y="396" text-anchor="middle" dominant-baseline="middle" font-size="8.5" fill="#bbf7d0">该阶段尚未开始 · 完整讲解</text>
+
+    <!-- ===== 主级联下半段 (D2 否 → 全 completed 路径) ===== -->
+
+    <!-- Fall-through: 全部 completed [390,310,220,42] center=(500,331) bottom=352 -->
+    <g filter="url(#shadow)">
+      <rect x="390" y="310" width="220" height="42" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+    </g>
+    <text x="500" y="325" text-anchor="middle" dominant-baseline="middle" font-size="11" font-weight="600" fill="#475569">全部 completed</text>
+    <text x="500" y="341" text-anchor="middle" dominant-baseline="middle" font-size="8.5" fill="#94a3b8">无 in_progress · 无 not_started</text>
+
+    <!-- Summary: 输出完整内容总结 [390,368,220,42] center=(500,389) bottom=410 -->
+    <g filter="url(#shadow)">
+      <rect x="390" y="368" width="220" height="42" rx="10" fill="#e5e9ff" stroke="#0065fd" stroke-width="2"/>
+    </g>
+    <text x="500" y="383" text-anchor="middle" dominant-baseline="middle" font-size="11" font-weight="600" fill="#1e293b">输出完整内容总结</text>
+    <text x="500" y="399" text-anchor="middle" dominant-baseline="middle" font-size="8.5" fill="#64748b">回顾全部阶段学习内容</text>
+
+    <!-- Delete: 删除存档 [390,426,220,42] center=(500,447) bottom=468 -->
+    <g filter="url(#shadow)">
+      <rect x="390" y="426" width="220" height="42" rx="10" fill="#e5e9ff" stroke="#0065fd" stroke-width="2"/>
+    </g>
+    <text x="500" y="441" text-anchor="middle" dominant-baseline="middle" font-size="11" font-weight="600" fill="#1e293b">删除存档</text>
+    <text x="500" y="457" text-anchor="middle" dominant-baseline="middle" font-size="8.5" fill="#64748b">学习已完成 · 清理存档文件</text>
+
+    <!-- Done: 学习完成 (蓝色胶囊) [390,486,220,46] center=(500,509) bottom=532 -->
+    <g filter="url(#shadow)">
+      <rect x="390" y="486" width="220" height="46" rx="23" fill="#6366f1"/>
+    </g>
+    <text x="500" y="503" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="600" fill="#ffffff">学习完成</text>
+    <text x="500" y="520" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#c7d2fe">全部阶段已学完 · 存档已删除</text>
+
+    <!-- ============================================================ -->
+    <!-- 连线 (画在节点之上，确保箭头可见)                                -->
+    <!-- ============================================================ -->
+
+    <!-- 1. Entry → D1 (竖线, 106→115, D1顶=117, 2px间隙) -->
+    <g stroke="#94a3b8" stroke-width="1.8" fill="none" marker-end="url(#arr)">
+      <line x1="500" y1="106" x2="500" y2="115"/>
+    </g>
+
+    <!-- 2. D1 → A1 (右, 是, 绿色, D1右=560 → A1左前2px=638) -->
+    <g stroke="#22c55e" stroke-width="1.8" fill="none" marker-end="url(#arr-g)">
+      <line x1="560" y1="145" x2="638" y2="145"/>
+    </g>
+
+    <!-- 3. D1 → D2 (下, 否, 灰色, D1底=173 → D2顶前2px=220) -->
+    <g stroke="#94a3b8" stroke-width="1.8" fill="none" marker-end="url(#arr)">
+      <line x1="500" y1="173" x2="500" y2="220"/>
+    </g>
+
+    <!-- 4. A1 → Sync1 (竖线, 167→193, Sync1顶=195, 2px间隙) -->
+    <g stroke="#94a3b8" stroke-width="1.8" fill="none" marker-end="url(#arr)">
+      <line x1="740" y1="167" x2="740" y2="193"/>
+    </g>
+
+    <!-- 5. Sync1 → Resume1 (竖线, 235→261, Resume1顶=263, 2px间隙, 绿色) -->
+    <g stroke="#22c55e" stroke-width="1.8" fill="none" marker-end="url(#arr-g)">
+      <line x1="740" y1="235" x2="740" y2="261"/>
+    </g>
+
+    <!-- 6. D2 → A2 (左, 是, 绿色, D2左=440 → A2右前2px=362) -->
+    <g stroke="#22c55e" stroke-width="1.8" fill="none" marker-end="url(#arr-g)">
+      <line x1="440" y1="250" x2="362" y2="250"/>
+    </g>
+
+    <!-- 7. D2 → Fall-through (下, 否, 灰色, D2底=278 → Fall-through顶前2px=308) -->
+    <g stroke="#94a3b8" stroke-width="1.8" fill="none" marker-end="url(#arr)">
+      <line x1="500" y1="278" x2="500" y2="308"/>
+    </g>
+
+    <!-- 8. A2 → Sync2 (竖线, 272→298, Sync2顶=300, 2px间隙) -->
+    <g stroke="#94a3b8" stroke-width="1.8" fill="none" marker-end="url(#arr)">
+      <line x1="260" y1="272" x2="260" y2="298"/>
+    </g>
+
+    <!-- 9. Sync2 → Resume2 (竖线, 340→360, Resume2顶=362, 2px间隙, 绿色) -->
+    <g stroke="#22c55e" stroke-width="1.8" fill="none" marker-end="url(#arr-g)">
+      <line x1="260" y1="340" x2="260" y2="360"/>
+    </g>
+
+    <!-- 10. Fall-through → Summary (竖线, 352→366, Summary顶=368, 2px间隙) -->
+    <g stroke="#94a3b8" stroke-width="1.8" fill="none" marker-end="url(#arr)">
+      <line x1="500" y1="352" x2="500" y2="366"/>
+    </g>
+
+    <!-- 11. Summary → Delete (竖线, 410→424, Delete顶=426, 2px间隙) -->
+    <g stroke="#94a3b8" stroke-width="1.8" fill="none" marker-end="url(#arr)">
+      <line x1="500" y1="410" x2="500" y2="424"/>
+    </g>
+
+    <!-- 12. Delete → Done (竖线, 468→484, Done顶=486, 2px间隙) -->
+    <g stroke="#94a3b8" stroke-width="1.8" fill="none" marker-end="url(#arr)">
+      <line x1="500" y1="468" x2="500" y2="484"/>
+    </g>
+
+    <!-- 注释虚线连接: A1右(840,145) → 注释左(850,145) -->
+    <line x1="840" y1="145" x2="850" y2="145" stroke="#ca8a04" stroke-width="1" stroke-dasharray="3 2"/>
+
+    <!-- ============================================================ -->
+    <!-- 标签                                                           -->
+    <!-- ============================================================ -->
+
+    <!-- D1 "是" (D1→A1 水平段, 白底遮挡) -->
+    <rect x="588" y="137" width="22" height="16" rx="3" fill="#f0fdf4"/>
+    <text x="599" y="145" text-anchor="middle" dominant-baseline="middle" font-size="9" font-weight="600" fill="#16a34a">是</text>
+
+    <!-- D1 "否" (D1→D2 竖线, 白底遮挡) -->
+    <rect x="489" y="188" width="22" height="16" rx="3" fill="#f8fafc"/>
+    <text x="500" y="196" text-anchor="middle" dominant-baseline="middle" font-size="9" font-weight="600" fill="#64748b">否</text>
+
+    <!-- D2 "是" (D2→A2 水平段, 白底遮挡) -->
+    <rect x="390" y="242" width="22" height="16" rx="3" fill="#f0fdf4"/>
+    <text x="401" y="250" text-anchor="middle" dominant-baseline="middle" font-size="9" font-weight="600" fill="#16a34a">是</text>
+
+    <!-- D2 "否" (D2→Fall-through 竖线, 白底遮挡) -->
+    <rect x="489" y="285" width="22" height="16" rx="3" fill="#f8fafc"/>
+    <text x="500" y="293" text-anchor="middle" dominant-baseline="middle" font-size="9" font-weight="600" fill="#64748b">否</text>
+
+    <!-- ============================================================ -->
+    <!-- 图例                                                           -->
+    <!-- ============================================================ -->
+    <g transform="translate(24, 560)" font-size="9" fill="#7f8d9f">
+      <line x1="0" y1="0" x2="24" y2="0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arr)"/>
+      <text x="30" y="4">执行路径</text>
+      <line x1="96" y1="0" x2="122" y2="0" stroke="#22c55e" stroke-width="1.8" marker-end="url(#arr-g)"/>
+      <text x="128" y="4">恢复路径</text>
+      <polygon points="200,-5 210,0 200,5 190,0" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.5"/>
+      <text x="216" y="4">判断/决策</text>
+      <rect x="278" y="-7" width="13" height="13" rx="3" fill="#ffffff" stroke="#0065fd" stroke-width="1.5"/>
+      <text x="296" y="4">执行动作</text>
+      <rect x="358" y="-7" width="13" height="13" rx="6.5" fill="#22c55e"/>
+      <text x="376" y="4">继续讲解</text>
+      <rect x="438" y="-7" width="13" height="13" rx="6.5" fill="#6366f1"/>
+      <text x="456" y="4">学习完成</text>
+      <rect x="518" y="-7" width="13" height="13" rx="3" fill="#fffbeb" stroke="#ca8a04" stroke-width="1.2" stroke-dasharray="3 2"/>
+      <text x="536" y="4">异常注释</text>
+    </g>
+
+  </g>
+</svg>

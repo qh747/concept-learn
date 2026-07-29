@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="200" viewBox="0 0 760 200">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="760" height="200" fill="#ffffff"/>
+
+  <!-- Connectors (drawn before nodes) -->
+  <line x1="165" y1="82" x2="203" y2="82" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="345" y1="82" x2="383" y2="82" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="525" y1="82" x2="573" y2="82" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Q Badges -->
+  <circle cx="95" cy="28" r="14" fill="#e5e9ff"/>
+  <text x="95" y="28" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12" font-weight="700" fill="#0065fd" text-anchor="middle" dominant-baseline="middle">Q1</text>
+
+  <circle cx="275" cy="28" r="14" fill="#e5e9ff"/>
+  <text x="275" y="28" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12" font-weight="700" fill="#0065fd" text-anchor="middle" dominant-baseline="middle">Q2</text>
+
+  <circle cx="455" cy="28" r="14" fill="#e5e9ff"/>
+  <text x="455" y="28" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12" font-weight="700" fill="#0065fd" text-anchor="middle" dominant-baseline="middle">Q3</text>
+
+  <!-- Nodes -->
+  <rect x="25" y="58" width="140" height="48" rx="14" fill="#e5e9ff" stroke="#0065fd" stroke-width="2"/>
+  <text x="95" y="82" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#0e1115" text-anchor="middle" dominant-baseline="middle">学习目标导向</text>
+
+  <rect x="205" y="58" width="140" height="48" rx="14" fill="#e5e9ff" stroke="#0065fd" stroke-width="2"/>
+  <text x="275" y="82" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#0e1115" text-anchor="middle" dominant-baseline="middle">解释详略</text>
+
+  <rect x="385" y="58" width="140" height="48" rx="14" fill="#e5e9ff" stroke="#0065fd" stroke-width="2"/>
+  <text x="455" y="82" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#0e1115" text-anchor="middle" dominant-baseline="middle">是否自检</text>
+
+  <rect x="575" y="58" width="140" height="48" rx="14" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+  <text x="645" y="82" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="600" fill="#0e1115" text-anchor="middle" dominant-baseline="middle">生成大纲</text>
+
+  <!-- Option labels below nodes -->
+  <!-- N1 -->
+  <line x1="40" y1="122" x2="150" y2="122" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="95" y="142" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#7f8d9f" text-anchor="middle" dominant-baseline="middle">应用 · 理解 · 应试</text>
+  <text x="95" y="162" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle" dominant-baseline="middle">学习目标导向</text>
+
+  <!-- N2 -->
+  <line x1="220" y1="122" x2="330" y2="122" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="275" y="142" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#7f8d9f" text-anchor="middle" dominant-baseline="middle">精炼 · 详尽</text>
+  <text x="275" y="162" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle" dominant-baseline="middle">解释详略程度</text>
+
+  <!-- N3 -->
+  <line x1="400" y1="122" x2="510" y2="122" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="455" y="142" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#7f8d9f" text-anchor="middle" dominant-baseline="middle">自检 · 不考核</text>
+  <text x="455" y="162" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle" dominant-baseline="middle">是否开启自检</text>
+</svg>

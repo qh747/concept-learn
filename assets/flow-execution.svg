@@ -1,0 +1,409 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1540" height="940" viewBox="0 0 1540 940">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arr-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#22c55e"/>
+    </marker>
+    <marker id="arr-r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#ef4444"/>
+    </marker>
+    <marker id="arr-o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#f59e0b"/>
+    </marker>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="116%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#0f172a" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <rect width="1540" height="940" fill="#ffffff"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+
+    <!-- ================================================================ -->
+    <!-- ============== 连线层（回环 + 主流程连接，置底） ================== -->
+    <!-- ================================================================ -->
+
+    <!-- ===== 左栏回环线 ===== -->
+    <!-- 大纲重写回环 D1→N3 (红虚线, 通道 x=190, y=240~318) -->
+    <g stroke="#ef4444" stroke-width="1.6" fill="none" stroke-dasharray="5 3" marker-end="url(#arr-r)">
+      <path d="M260,318 L190,318 L190,240 L240,240"/>
+    </g>
+
+    <!-- 阶段循环回环 D2→N4 (绿虚线, 通道 x=150, y=398~552, 与红通道 y 区间错开) -->
+    <g stroke="#22c55e" stroke-width="1.6" fill="none" stroke-dasharray="6 4" marker-end="url(#arr-g)">
+      <path d="M260,552 L150,552 L150,398 L240,398"/>
+    </g>
+
+    <!-- 中途退出引线 N4→D_exit (橙虚线) -->
+    <g stroke="#f59e0b" stroke-width="1.6" fill="none" stroke-dasharray="5 3" marker-end="url(#arr-o)">
+      <line x1="420" y1="398" x2="500" y2="398"/>
+    </g>
+
+    <!-- 取消退出回环 N9→N5 (橙虚线, 通道 x=450, y=474~548, 独立于主流程) -->
+    <g stroke="#f59e0b" stroke-width="1.6" fill="none" stroke-dasharray="5 3" marker-end="url(#arr-o)">
+      <path d="M480,548 L450,548 L450,474 L420,474"/>
+    </g>
+
+    <!-- ===== 左栏主流程连线 (灰) ===== -->
+    <g stroke="#94a3b8" stroke-width="1.8" fill="none" marker-end="url(#arr)">
+      <line x1="330" y1="112" x2="330" y2="140"/>
+      <line x1="330" y1="188" x2="330" y2="216"/>
+      <line x1="330" y1="264" x2="330" y2="290"/>
+      <line x1="330" y1="346" x2="330" y2="374"/>
+      <line x1="330" y1="422" x2="330" y2="450"/>
+      <line x1="330" y1="498" x2="330" y2="524"/>
+      <line x1="330" y1="580" x2="330" y2="608"/>
+      <line x1="330" y1="656" x2="330" y2="684"/>
+      <line x1="330" y1="732" x2="330" y2="758"/>
+    </g>
+
+    <!-- ===== 左栏退出支路连线 (灰) ===== -->
+    <g stroke="#94a3b8" stroke-width="1.8" fill="none" marker-end="url(#arr)">
+      <line x1="570" y1="422" x2="570" y2="450"/>
+      <line x1="570" y1="498" x2="570" y2="524"/>
+    </g>
+
+    <!-- ===== 右栏回环线 ===== -->
+    <!-- 阶段循环回环 D3→N4 (绿虚线, 通道 x=960, y=480~634) -->
+    <g stroke="#22c55e" stroke-width="1.6" fill="none" stroke-dasharray="6 4" marker-end="url(#arr-g)">
+      <path d="M1020,634 L960,634 L960,480 L1000,480"/>
+    </g>
+
+    <!-- 全部已完成路径 D2→N_sum (橙虚线, 通道 x=1480, 绕开退出支路) -->
+    <g stroke="#f59e0b" stroke-width="1.6" fill="none" stroke-dasharray="5 3" marker-end="url(#arr-o)">
+      <path d="M1160,400 L1480,400 L1480,714 L1420,714"/>
+    </g>
+
+    <!-- N_sum→N7 (橙虚线) -->
+    <g stroke="#f59e0b" stroke-width="1.6" fill="none" stroke-dasharray="5 3" marker-end="url(#arr-o)">
+      <path d="M1330,738 L1330,790 L1180,790"/>
+    </g>
+
+    <!-- 中途退出引线 N4→D_exit (橙虚线) -->
+    <g stroke="#f59e0b" stroke-width="1.6" fill="none" stroke-dasharray="5 3" marker-end="url(#arr-o)">
+      <line x1="1180" y1="480" x2="1260" y2="480"/>
+    </g>
+
+    <!-- 取消退出回环 N_ex2→N5 (橙虚线, 通道 x=1210, y=556~622) -->
+    <g stroke="#f59e0b" stroke-width="1.6" fill="none" stroke-dasharray="5 3" marker-end="url(#arr-o)">
+      <path d="M1240,622 L1210,622 L1210,556 L1180,556"/>
+    </g>
+
+    <!-- ===== 右栏主流程连线 (灰) ===== -->
+    <g stroke="#94a3b8" stroke-width="1.8" fill="none" marker-end="url(#arr)">
+      <line x1="1090" y1="112" x2="1090" y2="140"/>
+      <line x1="1090" y1="188" x2="1090" y2="214"/>
+      <line x1="1090" y1="270" x2="1090" y2="298"/>
+      <line x1="1090" y1="346" x2="1090" y2="372"/>
+      <line x1="1090" y1="428" x2="1090" y2="456"/>
+      <line x1="1090" y1="504" x2="1090" y2="532"/>
+      <line x1="1090" y1="580" x2="1090" y2="606"/>
+      <line x1="1090" y1="662" x2="1090" y2="690"/>
+      <line x1="1090" y1="738" x2="1090" y2="766"/>
+      <line x1="1090" y1="814" x2="1090" y2="838"/>
+    </g>
+
+    <!-- ===== 右栏未找到支路连线 (灰) ===== -->
+    <g stroke="#94a3b8" stroke-width="1.8" fill="none" marker-end="url(#arr)">
+      <line x1="1160" y1="242" x2="1240" y2="242"/>
+      <line x1="1330" y1="266" x2="1330" y2="292"/>
+    </g>
+
+    <!-- ===== 右栏退出支路连线 (灰) ===== -->
+    <g stroke="#94a3b8" stroke-width="1.8" fill="none" marker-end="url(#arr)">
+      <line x1="1330" y1="504" x2="1330" y2="524"/>
+      <line x1="1330" y1="572" x2="1330" y2="598"/>
+    </g>
+
+    <!-- ================================================================ -->
+    <!-- ============== 元素层（节点框、菱形、端点） ====================== -->
+    <!-- ================================================================ -->
+
+    <!-- ===== 左栏标题 ===== -->
+    <text x="240" y="34" font-size="15" font-weight="700" fill="#0f172a">① 新会话触发流程</text>
+    <line x1="240" y1="42" x2="420" y2="42" stroke="#cbd5e1" stroke-width="1.5"/>
+
+    <!-- ===== 左栏主流程节点 ===== -->
+    <!-- N1 用户触发 -->
+    <g filter="url(#shadow)">
+      <rect x="240" y="64" width="180" height="48" rx="24" fill="#0065fd"/>
+    </g>
+    <!-- N2 执行前提问 -->
+    <g filter="url(#shadow)">
+      <rect x="240" y="140" width="180" height="48" rx="10" fill="#ffffff" stroke="#0065fd" stroke-width="2"/>
+    </g>
+    <!-- N3 列出大纲 -->
+    <g filter="url(#shadow)">
+      <rect x="240" y="216" width="180" height="48" rx="10" fill="#ffffff" stroke="#0065fd" stroke-width="2"/>
+    </g>
+    <!-- D1 大纲确认？ -->
+    <polygon points="330,290 400,318 330,346 260,318" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+    <!-- N4 阶段讲解 -->
+    <g filter="url(#shadow)">
+      <rect x="240" y="374" width="180" height="48" rx="10" fill="#ffffff" stroke="#0065fd" stroke-width="2"/>
+    </g>
+    <!-- N5 阶段放行 -->
+    <g filter="url(#shadow)">
+      <rect x="240" y="450" width="180" height="48" rx="10" fill="#ffffff" stroke="#0065fd" stroke-width="2"/>
+    </g>
+    <!-- D2 还有下一阶段？ -->
+    <polygon points="330,524 400,552 330,580 260,552" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+    <!-- N6 总结·恭喜完成 -->
+    <g filter="url(#shadow)">
+      <rect x="240" y="608" width="180" height="48" rx="10" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+    </g>
+    <!-- N7 删除存档 -->
+    <g filter="url(#shadow)">
+      <rect x="240" y="684" width="180" height="48" rx="10" fill="#ffffff" stroke="#22c55e" stroke-width="2"/>
+    </g>
+    <!-- End -->
+    <circle cx="330" cy="770" r="12" fill="#ffffff" stroke="#22c55e" stroke-width="2"/>
+    <circle cx="330" cy="770" r="6" fill="#22c55e"/>
+
+    <!-- ===== 左栏退出支路节点 ===== -->
+    <!-- D_exit 用户退出？ -->
+    <polygon points="570,374 640,398 570,422 500,398" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+    <!-- N8 检查未保存进度 -->
+    <g filter="url(#shadow)">
+      <rect x="480" y="450" width="180" height="48" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+    </g>
+    <!-- N9 提示是否存档 -->
+    <g filter="url(#shadow)">
+      <rect x="480" y="524" width="180" height="48" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+    </g>
+
+    <!-- ===== 右栏标题 ===== -->
+    <text x="1000" y="34" font-size="15" font-weight="700" fill="#0f172a">② 恢复存档触发流程</text>
+    <line x1="1000" y1="42" x2="1180" y2="42" stroke="#cbd5e1" stroke-width="1.5"/>
+
+    <!-- ===== 右栏主流程节点 ===== -->
+    <!-- N1 恢复触发 -->
+    <g filter="url(#shadow)">
+      <rect x="1000" y="64" width="180" height="48" rx="24" fill="#0065fd"/>
+    </g>
+    <!-- N2 查找存档 -->
+    <g filter="url(#shadow)">
+      <rect x="1000" y="140" width="180" height="48" rx="10" fill="#ffffff" stroke="#0065fd" stroke-width="2"/>
+    </g>
+    <!-- D1 找到存档？ -->
+    <polygon points="1090,214 1160,242 1090,270 1020,242" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+    <!-- N3 汇报恢复状态 -->
+    <g filter="url(#shadow)">
+      <rect x="1000" y="298" width="180" height="48" rx="10" fill="#e5e9ff" stroke="#0065fd" stroke-width="2"/>
+    </g>
+    <!-- D2 阶段状态？ -->
+    <polygon points="1090,372 1160,400 1090,428 1020,400" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+    <!-- N4 阶段讲解 -->
+    <g filter="url(#shadow)">
+      <rect x="1000" y="456" width="180" height="48" rx="10" fill="#ffffff" stroke="#0065fd" stroke-width="2"/>
+    </g>
+    <!-- N5 阶段放行 -->
+    <g filter="url(#shadow)">
+      <rect x="1000" y="532" width="180" height="48" rx="10" fill="#ffffff" stroke="#0065fd" stroke-width="2"/>
+    </g>
+    <!-- D3 还有下一阶段？ -->
+    <polygon points="1090,606 1160,634 1090,662 1020,634" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+    <!-- N6 总结·恭喜完成 -->
+    <g filter="url(#shadow)">
+      <rect x="1000" y="690" width="180" height="48" rx="10" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+    </g>
+    <!-- N7 删除存档 -->
+    <g filter="url(#shadow)">
+      <rect x="1000" y="766" width="180" height="48" rx="10" fill="#ffffff" stroke="#22c55e" stroke-width="2"/>
+    </g>
+    <!-- End -->
+    <circle cx="1090" cy="850" r="12" fill="#ffffff" stroke="#22c55e" stroke-width="2"/>
+    <circle cx="1090" cy="850" r="6" fill="#22c55e"/>
+
+    <!-- ===== 右栏未找到支路节点 ===== -->
+    <!-- N_nf 询问是否新建学习 -->
+    <g filter="url(#shadow)">
+      <rect x="1240" y="218" width="180" height="48" rx="10" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+    </g>
+    <!-- End_nf -->
+    <circle cx="1330" cy="304" r="10" fill="#ffffff" stroke="#ea580c" stroke-width="2"/>
+    <circle cx="1330" cy="304" r="5" fill="#ea580c"/>
+
+    <!-- ===== 右栏中途退出支路节点 ===== -->
+    <!-- D_exit 用户退出？ -->
+    <polygon points="1330,456 1400,480 1330,504 1260,480" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+    <!-- N_ex1 检查未保存进度 -->
+    <g filter="url(#shadow)">
+      <rect x="1240" y="524" width="180" height="48" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+    </g>
+    <!-- N_ex2 提示是否存档 -->
+    <g filter="url(#shadow)">
+      <rect x="1240" y="598" width="180" height="48" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+    </g>
+
+    <!-- ===== 右栏 N_sum 输出内容总结 (恢复时全部已完成) ===== -->
+    <g filter="url(#shadow)">
+      <rect x="1240" y="690" width="180" height="48" rx="10" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+    </g>
+
+    <!-- ================================================================ -->
+    <!-- ============== 中间共享注释框 ================================== -->
+    <!-- ================================================================ -->
+    <g filter="url(#shadow)">
+      <rect x="660" y="180" width="280" height="130" rx="8" fill="#fffbeb" stroke="#ca8a04" stroke-width="1.5" stroke-dasharray="5 3"/>
+    </g>
+    <text x="800" y="202" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="#92400e" font-weight="700">中途可随时触发（两流程通用）</text>
+    <line x1="674" y1="212" x2="926" y2="212" stroke="#ca8a04" stroke-width="0.8" stroke-dasharray="3 2"/>
+    <text x="678" y="232" font-size="10" fill="#92400e">· 开启 / 关闭自检</text>
+    <text x="678" y="252" font-size="10" fill="#92400e">· 切换输出模式（step / all）</text>
+    <text x="678" y="272" font-size="10" fill="#92400e">· 跳过阶段 / 复习已学阶段</text>
+    <text x="678" y="292" font-size="10" fill="#92400e">· 主动存档 / 岔开话题</text>
+
+    <!-- ================================================================ -->
+    <!-- ============== 文字层（节点文字、标签、徽章） ==================== -->
+    <!-- ================================================================ -->
+
+    <!-- ===== 左栏节点文字 ===== -->
+    <text x="330" y="88" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="600" fill="#ffffff">用户触发</text>
+
+    <text x="330" y="159" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="600" fill="#1e293b">执行前提问</text>
+    <text x="330" y="175" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#64748b">3 问 · 一次一问 · 可回"默认"</text>
+
+    <text x="330" y="235" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="600" fill="#1e293b">列出大纲</text>
+    <text x="330" y="251" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#64748b">目标导向 + 详略生成</text>
+
+    <text x="330" y="318" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="#1e293b" font-weight="600">大纲确认？</text>
+
+    <text x="330" y="393" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="600" fill="#1e293b">阶段讲解</text>
+    <text x="330" y="409" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#64748b">step 分步 / all 全部</text>
+
+    <text x="330" y="469" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="600" fill="#1e293b">阶段放行</text>
+    <text x="330" y="485" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#64748b">自检→出题 / 关闭→口头确认</text>
+
+    <text x="330" y="545" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="#1e293b" font-weight="600">还有下一</text>
+    <text x="330" y="559" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="#1e293b" font-weight="600">阶段？</text>
+
+    <text x="330" y="627" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="600" fill="#16a34a">总结 · 恭喜完成</text>
+    <text x="330" y="643" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#22c55e">输出内容总结</text>
+
+    <text x="330" y="703" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="600" fill="#1e293b">删除存档</text>
+    <text x="330" y="719" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#64748b">学习完成，清理存档</text>
+
+    <!-- 左栏退出支路文字 -->
+    <text x="570" y="398" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="#1e293b" font-weight="600">用户退出？</text>
+
+    <text x="570" y="469" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="600" fill="#1e293b">检查未保存进度</text>
+    <text x="570" y="485" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#64748b">有变更则提示存档</text>
+
+    <text x="570" y="543" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="600" fill="#1e293b">提示是否存档</text>
+    <text x="570" y="559" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#64748b">是→存档退出 / 否→直接退出</text>
+
+    <!-- ===== 右栏节点文字 ===== -->
+    <text x="1090" y="88" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="600" fill="#ffffff">恢复触发</text>
+
+    <text x="1090" y="159" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="600" fill="#1e293b">查找存档</text>
+    <text x="1090" y="175" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#64748b">.concept-learn/ 下匹配主题</text>
+
+    <text x="1090" y="242" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="#1e293b" font-weight="600">找到存档？</text>
+
+    <text x="1090" y="317" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="600" fill="#1e293b">汇报恢复状态</text>
+    <text x="1090" y="333" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#64748b">读配置+进度 · 跳过 3 问</text>
+
+    <text x="1090" y="400" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="#1e293b" font-weight="600">阶段状态？</text>
+
+    <text x="1090" y="475" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="600" fill="#1e293b">阶段讲解</text>
+    <text x="1090" y="491" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#64748b">in_progress 续讲 / not_started 从头</text>
+
+    <text x="1090" y="551" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="600" fill="#1e293b">阶段放行</text>
+    <text x="1090" y="567" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#64748b">自检→出题 / 关闭→口头确认</text>
+
+    <text x="1090" y="627" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="#1e293b" font-weight="600">还有下一</text>
+    <text x="1090" y="641" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="#1e293b" font-weight="600">阶段？</text>
+
+    <text x="1090" y="709" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="600" fill="#16a34a">总结 · 恭喜完成</text>
+    <text x="1090" y="725" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#22c55e">输出内容总结</text>
+
+    <text x="1090" y="785" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="600" fill="#1e293b">删除存档</text>
+    <text x="1090" y="801" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#64748b">学习完成，清理存档</text>
+
+    <!-- 右栏未找到支路文字 -->
+    <text x="1330" y="237" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="600" fill="#1e293b">询问是否新建学习</text>
+    <text x="1330" y="253" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#64748b">无存档则转新建流程</text>
+
+    <!-- 右栏退出支路文字 -->
+    <text x="1330" y="480" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="#1e293b" font-weight="600">用户退出？</text>
+
+    <text x="1330" y="543" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="600" fill="#1e293b">检查未保存进度</text>
+    <text x="1330" y="559" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#64748b">有变更则提示存档</text>
+
+    <text x="1330" y="617" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="600" fill="#1e293b">提示是否存档</text>
+    <text x="1330" y="633" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#64748b">是→存档退出 / 否→直接退出</text>
+
+    <!-- 右栏 N_sum 文字 -->
+    <text x="1330" y="709" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="600" fill="#16a34a">输出内容总结</text>
+    <text x="1330" y="725" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#22c55e">恢复时全部已完成</text>
+
+    <!-- ===== 分支徽章 ===== -->
+    <!-- 左栏 通过 -->
+    <rect x="340" y="354" width="34" height="14" rx="2" fill="#dcfce7"/>
+    <text x="357" y="361" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#16a34a" font-weight="600">通过</text>
+    <!-- 左栏 否 -->
+    <rect x="340" y="588" width="26" height="14" rx="2" fill="#fef3c7"/>
+    <text x="353" y="595" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#b45309" font-weight="600">否</text>
+
+    <!-- 右栏 找到 -->
+    <rect x="1100" y="278" width="34" height="14" rx="2" fill="#dcfce7"/>
+    <text x="1117" y="285" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#16a34a" font-weight="600">找到</text>
+    <!-- 右栏 继续学习 -->
+    <rect x="1100" y="434" width="64" height="14" rx="2" fill="#dbeafe"/>
+    <text x="1132" y="441" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#1e40af" font-weight="600">继续学习</text>
+    <!-- 右栏 否 -->
+    <rect x="1100" y="668" width="26" height="14" rx="2" fill="#fef3c7"/>
+    <text x="1113" y="675" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#b45309" font-weight="600">否</text>
+    <!-- 右栏 未找到 -->
+    <rect x="1180" y="222" width="42" height="14" rx="2" fill="#fee2e2"/>
+    <text x="1201" y="229" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#dc2626" font-weight="600">未找到</text>
+    <!-- 右栏 是(退出) -->
+    <rect x="1340" y="510" width="26" height="14" rx="2" fill="#fef3c7"/>
+    <text x="1353" y="517" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#b45309" font-weight="600">是</text>
+    <!-- 左栏 是(退出) -->
+    <rect x="580" y="426" width="26" height="14" rx="2" fill="#fef3c7"/>
+    <text x="593" y="433" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#b45309" font-weight="600">是</text>
+
+    <!-- ===== 回环 / 引线文字标签 ===== -->
+    <!-- 左栏 不满意·重写 -->
+    <text x="182" y="282" text-anchor="end" dominant-baseline="middle" font-size="9" fill="#dc2626" font-weight="600">不满意·重写</text>
+    <!-- 左栏 是·下一阶段 -->
+    <text x="142" y="475" text-anchor="end" dominant-baseline="middle" font-size="9" fill="#16a34a" font-weight="600">是·下一阶段</text>
+    <!-- 左栏 中途退出 -->
+    <text x="460" y="390" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#b45309" font-weight="600">中途退出</text>
+    <!-- 左栏 取消·继续 -->
+    <text x="442" y="511" text-anchor="end" dominant-baseline="middle" font-size="9" fill="#b45309" font-weight="600">取消·继续</text>
+
+    <!-- 右栏 是·下一阶段 -->
+    <text x="952" y="558" text-anchor="end" dominant-baseline="middle" font-size="9" fill="#16a34a" font-weight="600">是·下一阶段</text>
+    <!-- 右栏 全部已完成 -->
+    <text x="1320" y="392" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#b45309" font-weight="600">全部已完成</text>
+    <!-- 右栏 中途退出 -->
+    <text x="1220" y="472" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#b45309" font-weight="600">中途退出</text>
+    <!-- 右栏 取消·继续 -->
+    <text x="1202" y="589" text-anchor="end" dominant-baseline="middle" font-size="9" fill="#b45309" font-weight="600">取消·继续</text>
+
+    <!-- ================================================================ -->
+    <!-- ============== 图例 ============================================ -->
+    <!-- ================================================================ -->
+    <g transform="translate(510, 910)" font-size="9" fill="#7f8d9f">
+      <line x1="0" y1="0" x2="24" y2="0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arr)"/>
+      <text x="30" y="4">主流程</text>
+      <line x1="80" y1="0" x2="104" y2="0" stroke="#22c55e" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#arr-g)"/>
+      <text x="110" y="4">阶段循环</text>
+      <line x1="170" y1="0" x2="194" y2="0" stroke="#ef4444" stroke-width="1.6" stroke-dasharray="5 3" marker-end="url(#arr-r)"/>
+      <text x="200" y="4">大纲重写</text>
+      <line x1="260" y1="0" x2="284" y2="0" stroke="#f59e0b" stroke-width="1.6" stroke-dasharray="5 3" marker-end="url(#arr-o)"/>
+      <text x="290" y="4">退出/恢复/已完成</text>
+      <rect x="380" y="-7" width="13" height="13" rx="6.5" fill="#0065fd"/>
+      <text x="398" y="4">起点</text>
+      <rect x="430" y="-7" width="13" height="13" rx="3" fill="#dcfce7" stroke="#22c55e" stroke-width="1.5"/>
+      <text x="448" y="4">完成</text>
+      <rect x="488" y="-7" width="13" height="13" rx="3" fill="#fffbeb" stroke="#ca8a04" stroke-width="1.5" stroke-dasharray="3 2"/>
+      <text x="506" y="4">可触发操作</text>
+    </g>
+
+  </g>
+</svg>

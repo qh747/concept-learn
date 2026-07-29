@@ -1,4 +1,4 @@
-# Concept Learn · 分阶段概念学习技能
+![Concept Learn 分阶段概念学习技能](assets/banner.svg)
 
 > 核心理念：**只有当用户在当前阶段理解后，才进入下一阶段。** 支持存档与恢复，跨会话延续学习进度。
 
@@ -32,19 +32,7 @@
 
 ## 二、触发判断流程
 
-```mermaid
-flowchart TD
-    A[用户输入] --> B{是否显式调用<br/>/concept-learn?}
-    B -- 是 --> C[进入分阶段教学模式]
-    B -- 否 --> D{是否包含系统性<br/>学习意图关键词?}
-    D -- 是 --> C
-    D -- 否 --> E{是否一次性可答<br/>的查询/求助/应试?}
-    E -- 是 --> F[直接回答，不触发]
-    E -- 否 --> D
-
-    style C fill:#d4edda,stroke:#28a745
-    style F fill:#f8d7da,stroke:#dc3545
-```
+![触发判断流程](assets/flow-trigger.svg)
 
 ### 触发与不触发对照
 
@@ -80,40 +68,7 @@ flowchart TD
 
 ## 三、完整执行流程
 
-```mermaid
-flowchart TD
-    A[用户触发] --> B[执行前提问<br/>3 个必答问题，一次一问]
-    B --> C[列出大纲<br/>根据目标导向与详略生成]
-    C --> D{大纲确认}
-    D -- 整体不满意 --> C
-    D -- 个别调整 --> E[只改指定项] --> D
-    D -- 明确确认 --> F[第一阶段讲解<br/>提示输出模式]
-
-    F --> OM{输出模式?}
-    OM -- step 分步 --> S1[输出第 1 个讲解点]
-    S1 --> S2[用户确认]
-    S2 --> S3{本阶段还有<br/>下一个讲解点?}
-    S3 -- 是 --> S4[输出下一个讲解点] --> S2
-    S3 -- 否 --> G
-    OM -- all 全部 --> S5[一次性输出<br/>整个阶段内容] --> G
-
-    G{自检开启?} -- 是 --> H[出 1-3 道原理题]
-    H --> I{至少答对一题?}
-    I -- 是 --> J[进入下一阶段]
-    I -- 否 --> K{是否需要重讲?}
-    K -- 是 --> L[换角度重讲] --> H
-    K -- 否 --> J
-    G -- 否 --> M["口头确认<br/>「懂了」即继续"]
-    M --> N{用户确认?}
-    N -- 有疑问 --> O[解答] --> M
-    N -- 懂了 --> J
-
-    J --> P{还有下一阶段?}
-    P -- 是 --> F
-    P -- 否 --> Q[输出总结 + 恭喜完成<br/>删除存档]
-
-    style Q fill:#d4edda,stroke:#28a745
-```
+![完整执行流程](assets/flow-execution.svg)
 
 ### 中途可触发的操作
 
@@ -133,11 +88,7 @@ flowchart TD
 
 ## 四、执行前提问（3 个必答问题）
 
-```mermaid
-flowchart LR
-    Q1[问题1<br/>学习目标导向] --> Q2[问题2<br/>解释详略] --> Q3[问题3<br/>是否自检] --> O[生成大纲]
-    style O fill:#d4edda,stroke:#28a745
-```
+![执行前提问（3 个必答问题）](assets/flow-questions.svg)
 
 > 一次只问一个，答完再问下一个。每个问题提供推荐默认值，回"默认"可快速通过。
 
@@ -175,17 +126,7 @@ flowchart LR
 
 ## 五、大纲确认状态机
 
-```mermaid
-stateDiagram-v2
-    [*] --> 大纲生成
-    大纲生成 --> 等待确认: 列出大纲
-    等待确认 --> 整体重写: 整体不满意
-    等待确认 --> 局部调整: 个别阶段需调整
-    等待确认 --> 进入讲解: 明确确认
-    整体重写 --> 大纲生成
-    局部调整 --> 等待确认: 只改指定项
-    进入讲解 --> [*]
-```
+![大纲确认状态机](assets/flow-outline-state.svg)
 
 ### 确认语义识别
 
@@ -202,32 +143,7 @@ stateDiagram-v2
 
 ## 六、阶段讲解与放行机制
 
-```mermaid
-flowchart TD
-    A[阶段讲解开始] --> OM{输出模式?}
-
-    OM -- step 分步 --> P1[输出第 1 个讲解点<br/>按详略与目标导向]
-    P1 --> P2[用户确认]
-    P2 --> P3{本阶段还有<br/>下一个讲解点?}
-    P3 -- 是 --> P4[输出下一个讲解点] --> P2
-    P3 -- 否 --> C
-    OM -- all 全部 --> P5[一次性输出<br/>整个阶段内容] --> C
-
-    C{自检开启?} -- 是 --> D[出 1-3 道原理题]
-    D --> E{全部答错?}
-    E -- 是 --> F{用户是否要求重讲?}
-    F -- 是 --> G[换角度重讲] --> D
-    F -- 否 --> H[进入下一阶段]
-    E -- 否,至少答对一题 --> H
-    C -- 否 --> I[询问:这部分理解了吗?]
-    I --> J{用户响应}
-    J -- 懂了/明白了/继续 --> H
-    J -- 有疑问 --> K[解答疑问] --> I
-    D -. 用户跳过自检 .-> H
-    D -. 用户关闭自检 .-> I
-
-    style H fill:#d4edda,stroke:#28a745
-```
+![阶段讲解与放行机制](assets/flow-stage.svg)
 
 ### 自检模式对照
 
@@ -254,15 +170,7 @@ flowchart TD
 
 ## 七、阶段状态机
 
-```mermaid
-stateDiagram-v2
-    [*] --> not_started
-    not_started --> in_progress: 开始讲解
-    in_progress --> completed: 讲完
-    not_started --> completed: 用户跳过
-    completed --> in_progress: 复习（不改 current_stage）
-    completed --> [*]
-```
+![阶段状态机](assets/flow-stage-state.svg)
 
 ### 状态定义
 
@@ -274,20 +182,7 @@ stateDiagram-v2
 
 ### 恢复时优先级规则
 
-```mermaid
-flowchart TD
-    A[读取存档] --> B{存在 in_progress 阶段?}
-    B -- 是 --> C[取最小编号的 in_progress]
-    B -- 否 --> D{存在 not_started 阶段?}
-    D -- 是 --> E[取最小编号的 not_started]
-    D -- 否 --> F[全部 completed]
-    F --> G[输出总结 + 删除存档]
-    C --> H{多个 in_progress?}
-    H -- 是 --> I[取最小编号 + 提示异常]
-    H -- 否 --> J[同步更新 current_stage]
-    E --> J
-    J --> K[从该阶段继续]
-```
+![恢复时优先级规则](assets/flow-resume-priority.svg)
 
 ---
 
@@ -372,19 +267,9 @@ updated_at: 2026-07-26
 
 ### 主动存档与退出处理
 
-```mermaid
-flowchart TD
-    A[用户说退出/结束/先保存] --> B{有未保存进度?}
-    B -- 是 --> C[提示:是否保存?]
-    C --> D{用户选择}
-    D -- 是 --> E[执行存档 + 退出]
-    D -- 否 --> F[不存档,直接退出]
-    D -- 取消退出 --> G[继续学习]
-    B -- 否 --> H[直接退出]
-
-    I[用户说保存进度/存档] --> J[写入 save.md]
-    J --> K[回复确认]
-```
+<p align="center">
+  <img src="assets/flow-save-exit.svg" alt="主动存档与退出处理">
+</p>
 
 ### 未保存进度判定
 
@@ -398,32 +283,7 @@ flowchart TD
 
 ## 九、恢复存档流程
 
-```mermaid
-flowchart TD
-    A[恢复触发] --> B{用户是否指定主题?}
-    B -- 是,命令 --> C[查找对应 slug 子目录]
-    C --> D{找到?}
-    D -- 是 --> E[向用户确认]
-    E --> F[确认后恢复]
-    D -- 否 --> G[告知无存档,询问是否新建]
-
-    B -- 是,自然语言 --> H[查找对应子目录]
-    H --> I{找到?}
-    I -- 是 --> J[直接恢复,无需二次确认]
-    I -- 否 --> G
-
-    B -- 否 --> K[扫描所有子目录]
-    K --> L{存档数量?}
-    L -- 1 个 --> J
-    L -- 多个 --> M[列出存档让用户选]
-    M --> J
-    L -- 0 个 --> G
-
-    F --> N[读取 frontmatter + 正文]
-    J --> N
-    N --> O[汇报恢复状态]
-    O --> P[跳过 3 问,从当前阶段继续]
-```
+![恢复存档流程](assets/flow-restore.svg)
 
 ### 恢复触发方式对照
 
@@ -441,6 +301,7 @@ flowchart TD
 主题：React
 学习目标：应用导向
 详略：详尽
+输出模式：分步输出
 当前进度：第 3 阶段（state 与生命周期）—— 进行中
 
 将从第 3 阶段继续讲解。

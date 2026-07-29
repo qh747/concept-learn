@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 460" width="960" height="460">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arr-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#22c55e"/>
+    </marker>
+    <marker id="arr-r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#ef4444"/>
+    </marker>
+    <marker id="arr-o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#f59e0b"/>
+    </marker>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="116%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#0f172a" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="460" fill="#ffffff"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+
+    <!-- ======================== 标题 ======================== -->
+    <text x="24" y="32" font-size="15" font-weight="700" fill="#0f172a">触发判断流程</text>
+    <line x1="24" y1="40" x2="160" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
+
+    <!-- ======================== 连线层（置底） ======================== -->
+
+    <!-- 重新判定回环 D3→D2 (橙虚线, 左侧通道 x=100) -->
+    <g stroke="#f59e0b" stroke-width="1.6" fill="none" stroke-dasharray="5 3" marker-end="url(#arr-o)">
+      <path d="M220,347 L100,347 L100,217 L220,217"/>
+    </g>
+
+    <!-- 主流程连线 (灰) -->
+    <g stroke="#94a3b8" stroke-width="1.8" fill="none" marker-end="url(#arr)">
+      <!-- 用户输入 → D1 -->
+      <line x1="150" y1="87" x2="220" y2="87"/>
+      <!-- D1 → Green (是) -->
+      <line x1="480" y1="87" x2="620" y2="87"/>
+      <!-- D1 → D2 (否) -->
+      <line x1="350" y1="129" x2="350" y2="175"/>
+      <!-- D2 → Green (是): 右 → 上 → 进入 Green 底部 -->
+      <path d="M480,217 L745,217 L745,110"/>
+      <!-- D2 → D3 (否) -->
+      <line x1="350" y1="259" x2="350" y2="305"/>
+      <!-- D3 → Red (是) -->
+      <line x1="480" y1="347" x2="620" y2="347"/>
+    </g>
+
+    <!-- ======================== 节点层 ======================== -->
+
+    <!-- 用户输入 (蓝色起点胶囊) -->
+    <g filter="url(#shadow)">
+      <rect x="30" y="64" width="120" height="46" rx="23" fill="#0065fd"/>
+    </g>
+
+    <!-- D1 显式调用 /concept-learn ? -->
+    <polygon points="350,45 480,87 350,129 220,87" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+
+    <!-- Green 进入分阶段教学模式 -->
+    <g filter="url(#shadow)">
+      <rect x="620" y="64" width="250" height="46" rx="12" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+    </g>
+
+    <!-- D2 包含系统性学习意图 ? -->
+    <polygon points="350,175 480,217 350,259 220,217" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+
+    <!-- D3 一次性可答查询 ? -->
+    <polygon points="350,305 480,347 350,389 220,347" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+
+    <!-- Red 直接回答，不触发 -->
+    <g filter="url(#shadow)">
+      <rect x="620" y="324" width="250" height="46" rx="12" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+    </g>
+
+    <!-- ======================== 文字层 ======================== -->
+
+    <!-- 节点文字 -->
+    <text x="90" y="87" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="600" fill="#ffffff">用户输入</text>
+
+    <text x="350" y="87" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="#1e293b" font-weight="600">显式调用 /concept-learn ?</text>
+
+    <text x="745" y="87" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="600" fill="#16a34a">进入分阶段教学模式</text>
+
+    <text x="350" y="217" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="#1e293b" font-weight="600">包含系统性学习意图 ?</text>
+
+    <text x="350" y="347" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="#1e293b" font-weight="600">一次性可答查询 ?</text>
+
+    <text x="745" y="347" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="600" fill="#dc2626">直接回答，不触发</text>
+
+    <!-- 分支徽章 -->
+    <!-- D1 → Green (是) -->
+    <rect x="528" y="71" width="26" height="14" rx="2" fill="#dcfce7"/>
+    <text x="541" y="78" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#16a34a" font-weight="600">是</text>
+    <!-- D1 → D2 (否) -->
+    <rect x="357" y="143" width="26" height="14" rx="2" fill="#fef3c7"/>
+    <text x="370" y="150" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#b45309" font-weight="600">否</text>
+    <!-- D2 → Green (是) -->
+    <rect x="500" y="201" width="26" height="14" rx="2" fill="#dcfce7"/>
+    <text x="513" y="208" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#16a34a" font-weight="600">是</text>
+    <!-- D2 → D3 (否) -->
+    <rect x="357" y="273" width="26" height="14" rx="2" fill="#fef3c7"/>
+    <text x="370" y="280" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#b45309" font-weight="600">否</text>
+    <!-- D3 → Red (是) -->
+    <rect x="528" y="331" width="26" height="14" rx="2" fill="#fee2e2"/>
+    <text x="541" y="338" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#dc2626" font-weight="600">是</text>
+    <!-- D3 → loop (否) -->
+    <rect x="112" y="273" width="26" height="14" rx="2" fill="#fef3c7"/>
+    <text x="125" y="280" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#b45309" font-weight="600">否</text>
+
+    <!-- 回环文字标签 -->
+    <text x="88" y="282" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#b45309" font-weight="600"
+          transform="rotate(-90,88,282)">重新判定</text>
+
+    <!-- ======================== 图例 ======================== -->
+    <g transform="translate(24, 432)" font-size="9" fill="#7f8d9f">
+      <line x1="0" y1="0" x2="24" y2="0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arr)"/>
+      <text x="30" y="4">主流程</text>
+      <line x1="96" y1="0" x2="120" y2="0" stroke="#f59e0b" stroke-width="1.6" stroke-dasharray="5 3" marker-end="url(#arr-o)"/>
+      <text x="126" y="4">重新判定</text>
+      <rect x="196" y="-7" width="13" height="13" rx="6.5" fill="#0065fd"/>
+      <text x="214" y="4">起点</text>
+      <rect x="246" y="-7" width="13" height="13" rx="3" fill="#dcfce7" stroke="#22c55e" stroke-width="1.5"/>
+      <text x="264" y="4">触发</text>
+      <rect x="296" y="-7" width="13" height="13" rx="3" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="314" y="4">不触发</text>
+      <polygon points="372,-3 386,4 372,11 358,4" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.2"/>
+      <text x="392" y="4">判定</text>
+    </g>
+
+  </g>
+</svg>

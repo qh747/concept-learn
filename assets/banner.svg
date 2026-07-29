@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 280" width="1200" height="280">
+  <defs>
+    <!-- Background gradient: subtle from #f0f5ff to #ffffff -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0f5ff"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+
+    <!-- Title gradient: #0065fd to #557fff -->
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0065fd"/>
+      <stop offset="100%" stop-color="#557fff"/>
+    </linearGradient>
+
+    <!-- Node gradient for active/completed stages -->
+    <linearGradient id="nodeActiveGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0065fd"/>
+      <stop offset="100%" stop-color="#557fff"/>
+    </linearGradient>
+
+    <!-- Node gradient for future stages -->
+    <radialGradient id="nodeFutureGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e5e9ff"/>
+      <stop offset="100%" stop-color="#c7d0ff"/>
+    </radialGradient>
+
+    <!-- Glow filter for active node -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Clip path for rounded corners -->
+    <clipPath id="roundCorners">
+      <rect x="0" y="0" width="1200" height="280" rx="16" ry="16"/>
+    </clipPath>
+  </defs>
+
+  <!-- Rounded background -->
+  <g clip-path="url(#roundCorners)">
+    <rect x="0" y="0" width="1200" height="280" fill="url(#bgGrad)"/>
+
+    <!-- Subtle decorative grid dots (very faint) -->
+    <g opacity="0.4">
+      <!-- Generated subtle dot pattern -->
+      <circle cx="50" cy="40" r="1.5" fill="#c7d0ff"/>
+      <circle cx="120" cy="60" r="1" fill="#c7d0ff"/>
+      <circle cx="200" cy="30" r="1.5" fill="#c7d0ff"/>
+      <circle cx="280" cy="50" r="1" fill="#c7d0ff"/>
+      <circle cx="350" cy="25" r="1.5" fill="#c7d0ff"/>
+      <circle cx="80" cy="240" r="1" fill="#c7d0ff"/>
+      <circle cx="180" cy="250" r="1.5" fill="#c7d0ff"/>
+      <circle cx="260" cy="230" r="1" fill="#c7d0ff"/>
+      <circle cx="340" cy="255" r="1.5" fill="#c7d0ff"/>
+    </g>
+
+    <!-- Left side: Graduation cap icon in light blue accent area -->
+    <g transform="translate(70, 85)">
+      <!-- Background accent circle -->
+      <circle cx="55" cy="55" r="65" fill="#e5e9ff" opacity="0.7"/>
+
+      <!-- Graduation cap (mortarboard) -->
+      <g transform="translate(18, 28)">
+        <!-- Cap base (diamond/flat top) -->
+        <path d="M 37 12 L 72 28 L 37 44 L 2 28 Z" fill="#0065fd"/>
+        <!-- Cap highlight -->
+        <path d="M 37 12 L 72 28 L 37 34 L 2 28 Z" fill="#557fff" opacity="0.3"/>
+        <!-- Skull cap (half ellipse below) -->
+        <path d="M 12 33 Q 37 52 62 33 L 62 40 Q 37 58 12 40 Z" fill="#0065fd"/>
+        <!-- Tassel string -->
+        <line x1="68" y1="28" x2="78" y2="18" stroke="#0065fd" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="78" y1="18" x2="78" y2="35" stroke="#0065fd" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- Tassel knot -->
+        <circle cx="78" cy="18" r="2.5" fill="#22c55e"/>
+        <!-- Tassel fringe -->
+        <line x1="76" y1="35" x2="74" y2="44" stroke="#0065fd" stroke-width="1" stroke-linecap="round"/>
+        <line x1="78" y1="35" x2="78" y2="45" stroke="#0065fd" stroke-width="1" stroke-linecap="round"/>
+        <line x1="80" y1="35" x2="82" y2="44" stroke="#0065fd" stroke-width="1" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <!-- Main title: Concept Learn -->
+    <text x="220" y="125" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="58" font-weight="800" fill="url(#titleGrad)" letter-spacing="-1">
+      Concept Learn
+    </text>
+
+    <!-- Subtitle: 分阶段概念学习技能 -->
+    <text x="222" y="170" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="24" font-weight="600" fill="#0e1115">
+      分阶段概念学习技能
+    </text>
+
+    <!-- Tagline: 只有当用户在当前阶段理解后，才进入下一阶段 -->
+    <text x="222" y="208" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" font-weight="400" fill="#7f8d9f">
+      只有当用户在当前阶段理解后，才进入下一阶段
+    </text>
+
+    <!-- Right side: Connected nodes / learning stages progression -->
+    <g transform="translate(710, 108)">
+      <!-- Connecting lines (behind nodes, edge-to-edge) -->
+      <g stroke="#c7d0ff" stroke-width="2.5" stroke-linecap="round">
+        <line x1="58" y1="32" x2="117" y2="32"/>
+        <line x1="153" y1="32" x2="210" y2="32"/>
+        <line x1="250" y1="32" x2="309" y2="32"/>
+        <line x1="341" y1="32" x2="406" y2="32"/>
+      </g>
+
+      <!-- Progress lines (filled portion for completed/in-progress stages) -->
+      <g stroke="url(#nodeActiveGrad)" stroke-width="2.5" stroke-linecap="round" opacity="0.9">
+        <line x1="58" y1="32" x2="117" y2="32"/>
+        <line x1="153" y1="32" x2="185" y2="32"/>
+      </g>
+
+      <!-- Stage 1: Completed (filled with checkmark) -->
+      <circle cx="40" cy="32" r="18" fill="url(#nodeActiveGrad)" filter="url(#glow)"/>
+      <path d="M 32 32 L 38 38 L 49 27" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+      <!-- Stage 2: Completed (filled with checkmark) -->
+      <circle cx="135" cy="32" r="18" fill="url(#nodeActiveGrad)" filter="url(#glow)"/>
+      <path d="M 127 32 L 133 38 L 144 27" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+      <!-- Stage 3: Current/Active (filled with number, pulsing ring) -->
+      <circle cx="230" cy="32" r="20" fill="url(#nodeActiveGrad)" filter="url(#glow)"/>
+      <circle cx="230" cy="32" r="27" fill="none" stroke="#0065fd" stroke-width="2" opacity="0.25"/>
+      <circle cx="230" cy="32" r="33" fill="none" stroke="#0065fd" stroke-width="1.5" opacity="0.12"/>
+      <text x="230" y="39" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="19" font-weight="700" fill="#ffffff">3</text>
+
+      <!-- Stage 4: Future (light fill) -->
+      <circle cx="325" cy="32" r="16" fill="url(#nodeFutureGrad)"/>
+      <text x="325" y="38" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="600" fill="#7f8d9f">4</text>
+
+      <!-- Stage 5: Future (smallest, hollow with dot) -->
+      <circle cx="420" cy="32" r="14" fill="#f0f5ff" stroke="#c7d0ff" stroke-width="1.5"/>
+      <circle cx="420" cy="32" r="3" fill="#c7d0ff"/>
+
+      <!-- Small floating decorative dots around stages -->
+      <circle cx="40" cy="-5" r="3" fill="#22c55e" opacity="0.6"/>
+      <circle cx="135" cy="68" r="2.5" fill="#22c55e" opacity="0.5"/>
+      <circle cx="230" cy="-12" r="4" fill="#22c55e" opacity="0.7"/>
+      <circle cx="325" cy="70" r="2" fill="#c7d0ff"/>
+      <circle cx="420" cy="-3" r="2.5" fill="#c7d0ff"/>
+
+      <!-- Stage labels below -->
+      <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" fill="#7f8d9f" text-anchor="middle" font-weight="500">
+        <text x="40" y="68">入门</text>
+        <text x="135" y="68">理解</text>
+        <text x="230" y="72" fill="#0065fd" font-weight="700">实践</text>
+        <text x="325" y="68">进阶</text>
+        <text x="420" y="66">精通</text>
+      </g>
+    </g>
+
+    <!-- Success indicator: small green dot near tagline -->
+    <circle cx="210" cy="203" r="5" fill="#22c55e"/>
+    <circle cx="210" cy="203" r="8" fill="#22c55e" opacity="0.2"/>
+  </g>
+
+  <!-- Outer border (subtle) -->
+  <rect x="0.5" y="0.5" width="1199" height="279" rx="16" ry="16" fill="none" stroke="#e5e9ff" stroke-width="1"/>
+</svg>
